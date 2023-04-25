@@ -1,8 +1,10 @@
 import cv2
 import os
+import numpy as np
 from pdf2image import convert_from_path
 import functions as fs
 from PIL import Image
+import modules
 
 #getting path
 resource_path=os.getcwd()+"/resource/"          #path
@@ -15,15 +17,20 @@ for i, page in enumerate(pdfs):
     page.save(resource_path + file_name + str(i+1)+ '.jpg')
     
 #reading image
-image=cv2.imread(resource_path + file_name + str(i+1) + '.jpg')
+i=2
+image0=cv2.imread(resource_path + file_name + str(i+1) + '.jpg')
 
-#binarization
-image=fs.threshold(image)
+#removing noise
+image=modules.remove_noise(image0)
 
-#resizing and opening image
+#removing staves
+image1, staves=modules.remove_staves(image)
+
+#resizing and opening image(unfixed)
 cv2.namedWindow('Resized Window',cv2.WINDOW_NORMAL)
 cv2.resizeWindow('Resized Window', 1048, 1048)
-cv2.imshow('Resized Window', image)
+
+cv2.imshow('Resized Window', image1)
 
 #press esc to escape
 k=cv2.waitKey(0)
