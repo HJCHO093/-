@@ -27,7 +27,7 @@ def remove_staves(image): #removing staves
         pixels=0
         for col in range(width):
             pixels += (image[row][col]==255) #counting white pixels in each row
-        if pixels >= width * 0.5: #adding staves
+        if pixels >= width * 0.7: #adding staves
             if len(staves)==0 or abs(staves[-1][0]+staves[-1][1]-row)>1:
                 staves.append([row, 0])
             else:
@@ -40,3 +40,22 @@ def remove_staves(image): #removing staves
                 for row in range(top_pixel, bot_pixel+1):
                     image[row][col]=0 #removing staves
     return image, [x[0] for x in staves]
+
+def normalization(image, staves, standard):
+    avg_distance=0
+    lines=int(len(staves)/5) #the number of staves
+    for line in range(lines):
+        for staff in range(4):
+            staff_above=staves[line*5 + staff]
+            staff_below=staves[line*5 + staff + 1]
+            avg_distance += abs(staff_above - staff_below)
+    
+    avg_distance /= len(staves)-lines #add every distance between staves and divide by the number of spaces
+    height, width=image.shape
+    weight=standard/avg_distance
+    new_width=int(width * weight)
+    new_height=int(height * weight)
+    image=cv2.resize(image, (new_width, new_height))
+    ret, image=cv2.threshold(image, 127, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+    staves=[x * weight for x in staves]
+    return image, staves
