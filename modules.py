@@ -27,7 +27,7 @@ def remove_staves(image): #removing staves
         pixels=0
         for col in range(width):
             pixels += (image[row][col]==255) #counting white pixels in each row
-        if pixels >= width * 0.5: #adding staves
+        if pixels >= width * 0.8: #adding staves
             if len(staves)==0 or abs(staves[-1][0]+staves[-1][1]-row)>1:
                 staves.append([row, 0])
             else:
