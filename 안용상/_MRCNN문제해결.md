@@ -10,7 +10,7 @@ python setup.py install
 >> * PYTHONPATH 이름으로 만들고
 >> * 경로는 "C:\Users\qhfkd\anaconda3\Lib\site-packages\mrcnn"
 이런 형태로 삽입( 즉 mrcnn이 들어있는 폴더 삽입)
-![img](./others/syspath.png)
+<img src ="./others/syspath.png" width = 300/>
 ### mrcnn 모듈 불러오기
 > from mrcnn.utils import Dataset
 해보기
