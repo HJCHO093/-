@@ -1,0 +1,26 @@
+<annotation>
+	<folder>scoreImg</folder>
+	<filename>4score.png</filename>
+	<path>C:\형종\resource\scoreImg\4score.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>360</width>
+		<height>600</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>four_score</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>81</xmin>
+			<ymin>39</ymin>
+			<xmax>259</xmax>
+			<ymax>537</ymax>
+		</bndbox>
+	</object>
+</annotation>
