@@ -7,7 +7,8 @@ from PIL import Image
 import modules as modules
 import matplotlib.pyplot as plt
 #getting path
-resource_path=os.getcwd()+"/resource/"          #path
+print(os.getcwd())
+resource_path=os.getcwd()+ "/resource/"          #path
 file_name="bluewhale.pdf"                       #file name
 pdffile_path=resource_path + file_name          
 
