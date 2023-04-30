@@ -7,6 +7,7 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__))+"\\Mask_RCNN\\mrcnn"
 from mrcnn.utils import Dataset, extract_bboxes
 from mrcnn.visualize import display_instances
 dir = os.path.dirname(os.path.realpath(__file__))
+print (dir)
 filename = dir + "\\kangaroo\\annots\\00001.xml"
 dataset_dir = dir + "\\kangaroo\\"
 ## 함수영역 

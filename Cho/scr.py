@@ -4,7 +4,7 @@ import numpy as np
 from pdf2image import convert_from_path
 import functions as fs
 from PIL import Image
-import modules
+import modules as modules
 
 #getting path
 resource_path=os.getcwd()+"/resource/"          #path
