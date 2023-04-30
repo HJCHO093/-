@@ -42,10 +42,16 @@ for i, bbox in enumerate(objects):
     h = location[3]
     area = location[4]
     separated_image = image3[y-20:y+h+20, x-20:x+w+20]
-    mask_image = separated_image
-    mask_image[y:y+h, x:x+w] = 255
+    mask_image = np.zeros(separated_image.shape)
+    
+    mask_image[20:h+20, 20:w+20]=1
+    print(mask_image.shape)
+    print(mask_image)
+
+    print(image3.shape, separated_image.shape, mask_image.shape)
     plt.imshow(separated_image) 
-    plt.imshow(mask_image, alpha=0.5)
+    plt.imshow(mask_image, cmap="gray", alpha=0.5) 
+    # plt.imshow(mask_image, cmap='gray',alpha=0.5)
     plt.savefig("./image_test/test_%s.jpg"%i)
 #resizing and opening image(unfixed)
 """
