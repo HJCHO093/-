@@ -5,7 +5,7 @@ from pdf2image import convert_from_path
 import functions as fs
 from PIL import Image
 import modules
-
+import matplotlib.pyplot as plt
 #getting path
 resource_path=os.getcwd()+"/resource/"          #path
 file_name="bluewhale.pdf"                       #file name
@@ -31,10 +31,21 @@ image2, staves=modules.normalization(image1, staves, 20)
 
 #Detecting each objects
 image3, objects=modules.object_detection(image2, staves)
-        
-#analyzing objects
-image4, objects=modules.object_analysis(image3, objects)
-
+print(objects)
+print(image3)
+for i, bbox in enumerate(objects):
+    line, location = bbox[0], bbox[1]
+    x = location[0]
+    y = location[1]
+    w = location[2]
+    h = location[3]
+    area = location[4]
+    separated_image = image3[y-20:y+h+20, x-20:x+w+20]
+    mask_image = separated_image
+    mask_image[y:y+h, x:x+w] = 255
+    plt.imshow(separated_image) 
+    plt.imshow(mask_image, alpha=0.5)
+    plt.savefig("./image_test/test_%s.jpg"%i)
 #resizing and opening image(unfixed)
 """
 cv2.namedWindow('Resized Window',cv2.WINDOW_NORMAL)
