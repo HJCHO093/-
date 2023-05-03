@@ -16,7 +16,7 @@ file_name="bluewhale.pdf"                       #file name
 pdffile_path=resource_path + file_name          
 
 #converting pdf to jpg
-pdfs=convert_from_path(pdffile_path, 500)
+pdfs=convert_from_path(pdffile_path,500)
 for i, page in enumerate(pdfs):
     page.save(resource_path + file_name + str(i+1)+ '.jpg')
     
@@ -51,9 +51,11 @@ def get_test_img(objects, index):
     if "zzz" not in os.listdir('./test_data/'):
         os.mkdir('./test_data/' + "zzz")
     path_ = "./test_data/"+"zzz"+'/'
-    cv2.imwrite(path_ + '0_original.jpg', image0[int(y*1654/985):int((y+h)*1700/985), int(2339/1394*x):int(2339/1394*(x+w)), 0])
-    cv2.imwrite(path_ +'1_remove_noise.jpg', image[int(y*1654/985):int((y+h)*1700/985), int(2339/1394*x):int(2339/1394*(x+w))])
-    cv2.imwrite(path_ +'2_remove_staves.jpg', image1[int(y*1654/985):int((y+h)*1700/985), int(2339/1394*x):int(2339/1394*(x+w))])
+    height, width  = image.shape
+    l_height, l_width = image2.shape
+    cv2.imwrite(path_ + '0_original.jpg', image0[int(y*height/l_height):int((y+h)*height/l_height), int(width/l_width*x):int(width/l_width*(x+w)), 0])
+    cv2.imwrite(path_ +'1_remove_noise.jpg', image[int(y*height/l_height):int((y+h)*height/l_height), int(width/l_width*x):int(width/l_width*(x+w))])
+    cv2.imwrite(path_ +'2_remove_staves.jpg', image1[int(y*height/l_height):int((y+h)*height/l_height), int(width/l_width*x):int(width/l_width*(x+w))])
     image2[y-1,x-1:x+w+1] = 125
     image2[y+h+1,x-1:x+w+1] = 125
     image2[y-1:y+h+1,x-1] = 125
