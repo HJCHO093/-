@@ -39,6 +39,7 @@ print(image2.shape, "image2")
 image3, objects=modules.object_detection(image2, staves)
 print(image3.shape, "image3")
 def get_test_img(objects, index):
+    index = int(index)
     bbox = objects[index]
     line, location = bbox[0], bbox[1]
     x = location[0]
