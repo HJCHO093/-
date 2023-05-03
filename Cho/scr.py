@@ -48,9 +48,9 @@ def get_test_img(objects, index):
     area = location[4]
     separated_image = image3[y:y+h, x:x+w]
     mask_image = np.zeros(separated_image.shape)
-    if str(index) not in os.listdir('./test_data/'):
-        os.mkdir('./test_data/' + str(index))
-    path_ = "./test_data/"+str(index)+'/'
+    if "zzz" not in os.listdir('./test_data/'):
+        os.mkdir('./test_data/' + "zzz")
+    path_ = "./test_data/"+"zzz"+'/'
     cv2.imwrite(path_ + '0_original.jpg', image0[int(y*1654/985):int((y+h)*1700/985), int(2339/1394*x):int(2339/1394*(x+w)), 0])
     cv2.imwrite(path_ +'1_remove_noise.jpg', image[int(y*1654/985):int((y+h)*1700/985), int(2339/1394*x):int(2339/1394*(x+w))])
     cv2.imwrite(path_ +'2_remove_staves.jpg', image1[int(y*1654/985):int((y+h)*1700/985), int(2339/1394*x):int(2339/1394*(x+w))])
