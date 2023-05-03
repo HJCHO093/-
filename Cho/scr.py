@@ -16,7 +16,7 @@ file_name="bluewhale.pdf"                       #file name
 pdffile_path=resource_path + file_name          
 
 #converting pdf to jpg
-pdfs=convert_from_path(pdffile_path)
+pdfs=convert_from_path(pdffile_path, 500)
 for i, page in enumerate(pdfs):
     page.save(resource_path + file_name + str(i+1)+ '.jpg')
     
