@@ -54,8 +54,17 @@ def get_test_img(objects, index):
     cv2.imwrite(path_ + '0_original.jpg', image0[int(y*1654/985):int((y+h)*1700/985), int(2339/1394*x):int(2339/1394*(x+w)), 0])
     cv2.imwrite(path_ +'1_remove_noise.jpg', image[int(y*1654/985):int((y+h)*1700/985), int(2339/1394*x):int(2339/1394*(x+w))])
     cv2.imwrite(path_ +'2_remove_staves.jpg', image1[int(y*1654/985):int((y+h)*1700/985), int(2339/1394*x):int(2339/1394*(x+w))])
-    cv2.imwrite(path_ +'3_after_normal.jpg', image2[y:y+h, x:x+w])
-    cv2.imwrite(path_ +'4_after_detec.jpg', image3[y:y+h, x:x+w])
+    image2[y-1,x-1:x+w+1] = 125
+    image2[y+h+1,x-1:x+w+1] = 125
+    image2[y-1:y+h+1,x-1] = 125
+    image2[y-1:y+h+1,1+x+w] = 125
+    image3[y-1,x-1:x+w+1] = 125
+    image3[y+h+1,x-1:x+w+1] = 125
+    image3[y-1:y+h+1,x-1] = 125
+    image3[y-1:y+h+1,1+x+w] = 125
+
+    cv2.imwrite(path_ +'3_after_normal.jpg', image2[y-40:y+h+40, x-40:x+w+40])
+    cv2.imwrite(path_ +'4_after_detec.jpg', image3[y-40:y+h+40, x-40:x+w+40])
 input_number = 1
 while input_number != 'x':
     input_number = int(input("뽑아보기를 원하는 바운딩박스상의 인덱스 입력하시오 :  (끝내고싶으면 x을 입력하라)"))
