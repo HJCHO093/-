@@ -52,11 +52,11 @@ def get_test_img(objects, index):
         os.mkdir('./test_data/' + str(index))
     path_ = "./test_data/"+str(index)+'/'
     cv2.imwrite(path_ + '0_original.jpg', image0[int(y*1654/985):int((y+h)*1654/985), int(2339/1394*x):int(2339/1394*(x+w)), 0])
-    cv2.imwrite(path_ +'1_remove_noise.jpg', image[int(y*1654/985):int((y+h)*1654/985), int(2339/1394*x):int(2339/1394*(x+w))])
+    cv2.imwrite(path_ +'1_remove_noise.jpg', image[int(y*1654/985):int((y+h)*1654/985), int(2339/121394*x):int(2339/1394*(x+w))])
     cv2.imwrite(path_ +'2_remove_staves.jpg', image1[int(y*1654/985):int((y+h)*1654/985), int(2339/1394*x):int(2339/1394*(x+w))])
     cv2.imwrite(path_ +'3_after_normal.jpg', image2[y:y+h, x:x+w])
     cv2.imwrite(path_ +'4_after_detec.jpg', image3[y:y+h, x:x+w])    
-input_number = input("뽑아보기를 원하는 바운딩박스상의 인덱스 입력하시오 : ")
+input_number = str(input("뽑아보기를 원하는 바운딩박스상의 인덱스 입력하시오 : "))
 get_test_img(objects,input_number)
 print("done!")
 # bbox = objects[0]
