@@ -34,6 +34,7 @@ image2, staves=modules.normalization(image1, staves, 20)
 image3, objects=modules.object_detection(image2, staves)
 print(objects)
 print(image3)
+
 for i, bbox in enumerate(objects):
     line, location = bbox[0], bbox[1]
     x = location[0]
@@ -53,6 +54,8 @@ for i, bbox in enumerate(objects):
     plt.imshow(mask_image, cmap="gray", alpha=0.5) 
     # plt.imshow(mask_image, cmap='gray',alpha=0.5)
     plt.savefig("./image_test/test_%s.jpg"%i)
+
+
 #resizing and opening image(unfixed)
 """
 cv2.namedWindow('Resized Window',cv2.WINDOW_NORMAL)
