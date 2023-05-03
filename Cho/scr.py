@@ -58,7 +58,7 @@ def get_test_img(objects, index):
     cv2.imwrite(path_ +'4_after_detec.jpg', image3[y:y+h, x:x+w])
 input_number = 1
 while input_number != 'x':
-    input_number = int(input("뽑아보기를 원하는 바운딩박스상의 인덱스 입력하시오 :  (끝내고싶으면 0을 입력하라)"))
+    input_number = int(input("뽑아보기를 원하는 바운딩박스상의 인덱스 입력하시오 :  (끝내고싶으면 x을 입력하라)"))
     get_test_img(objects,input_number)
     print("done!")
 # bbox = objects[0]
