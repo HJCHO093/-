@@ -1,0 +1,26 @@
+<annotation>
+	<folder>resource</folder>
+	<filename>bluewhale.pdf3.jpg</filename>
+	<path>C:\Users\admin\Desktop\score\-\Cho\resource\bluewhale.pdf3.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1654</width>
+		<height>2339</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>high</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>107</xmin>
+			<ymin>103</ymin>
+			<xmax>160</xmax>
+			<ymax>197</ymax>
+		</bndbox>
+	</object>
+</annotation>
