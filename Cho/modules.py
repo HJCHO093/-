@@ -1,10 +1,12 @@
 import cv2
 import numpy as np
 import functions as fs
-
+import matplotlib.pyplot as plt
 def remove_noise(image):
     #binarization, masking(removing redundant parts)
     image=fs.threshold(image)
+
+    cv2.imwrite("./new.png",image)
     mask=np.zeros(image.shape, np.uint8)
 
 
